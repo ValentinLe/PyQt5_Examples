@@ -368,12 +368,27 @@ class WinSplitter(QWidget):
         layout.addWidget(splitterverti)
 
 
-class Win(QWidget):
+class WinScrollArea(QWidget):
     def __init__(self):
         QWidget.__init__(self)
 
         layout = QGridLayout()
         self.setLayout(layout)
+
+        frame = QFrame()
+
+        vbox = QVBoxLayout()
+        frame.setLayout(vbox)
+
+        for i in range(200):
+            label = QLabel("Label " + str(i))
+            vbox.addWidget(label)
+        
+        scrollbarArea = QScrollArea()
+        scrollbarArea.setWidgetResizable(True)
+        scrollbarArea.setWidget(frame)
+        layout.addWidget(scrollbarArea)
+        
 
 def openWin(w):
     app = QApplication(sys.argv)
