@@ -338,6 +338,43 @@ class WinProgressBar(QWidget):
     def slider_changed(self):
         self.progressbar.setValue(self.slider.value())
 
+
+class WinSplitter(QWidget):
+    def __init__(self):
+        """ faire un splitter de zones (Frame) """
+        QWidget.__init__(self)
+
+        layout = QHBoxLayout()
+        self.setLayout(layout)
+
+        # les zones
+        topleft = QFrame(self)
+        topleft.setFrameShape(QFrame.StyledPanel)
+
+        topright = QFrame(self)
+        topright.setFrameShape(QFrame.StyledPanel)
+
+        bottom = QFrame(self)
+        bottom.setFrameShape(QFrame.StyledPanel)
+
+        # les splitters
+        splitterhori = QSplitter(Qt.Horizontal)
+        splitterhori.addWidget(topleft)
+        splitterhori.addWidget(topright)
+
+        splitterverti = QSplitter(Qt.Vertical)
+        splitterverti.addWidget(splitterhori)
+        splitterverti.addWidget(bottom)
+        layout.addWidget(splitterverti)
+
+
+class Win(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
 def openWin(w):
     app = QApplication(sys.argv)
 
