@@ -390,6 +390,28 @@ class WinScrollArea(QWidget):
         layout.addWidget(scrollbarArea)
         
 
+class WinSpinBox(QWidget):
+    def __init__(self):
+        """ spinbox = box number avec les fleches pour ++/-- le nombre """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        self.spinbox = QSpinBox()
+        self.spinbox.setMinimum(-10)
+        self.spinbox.setMaximum(10)
+        # setRange(-10,10) = setMini & setMaxi
+        self.spinbox.setSuffix(" euro")
+        self.spinbox.valueChanged.connect(self.on_changed_value)
+        layout.addWidget(self.spinbox)
+        
+        self.label = QLabel("Valeur : " + str(self.spinbox.value()))
+        layout.addWidget(self.label)
+
+    def on_changed_value(self):
+        self.label.setText("Value : " + str(self.spinbox.value()))
+
 def openWin(w):
     app = QApplication(sys.argv)
 
@@ -400,6 +422,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(Win)
+    openWin(WinSpinBox)
 
 
