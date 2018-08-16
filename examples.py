@@ -399,6 +399,8 @@ class WinSpinBox(QWidget):
         self.setLayout(layout)
 
         self.spinbox = QSpinBox()
+        # doubleSpinBox pour les doubles au lieu des int
+        #self.spinbox = QDoubleSpinBox()
         self.spinbox.setMinimum(-10)
         self.spinbox.setMaximum(10)
         # setRange(-10,10) = setMini & setMaxi
@@ -412,6 +414,144 @@ class WinSpinBox(QWidget):
     def on_changed_value(self):
         self.label.setText("Value : " + str(self.spinbox.value()))
 
+
+class WinProgressDialog(QWidget):
+    def __init__(self):
+        """ progressBar sans avec un boutton cancel et/ou sa disparition quand 100% """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        # slider
+        self.slider = QSlider(Qt.Horizontal)
+        self.slider.setMinimum(0)
+        self.slider.setMaximum(100)
+        self.slider.setValue(0)
+        self.slider.valueChanged.connect(self.slider_changed)
+        layout.addWidget(self.slider, 0, 0)
+
+        # progressBar de dialogue
+        self.progressdialog = QProgressDialog()
+        self.progressdialog.setMinimum(0)
+        self.progressdialog.setMaximum(100)
+        self.progressdialog.setValue(0)
+        layout.addWidget(self.progressdialog)
+
+    def slider_changed(self):
+        self.progressdialog.setValue(self.slider.value())
+
+
+class WinToolBar(QWidget):
+    def __init__(self):
+        """ button classique qui fonctionnent comme selection button radio """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        toolbar = QToolBar()
+        layout.addWidget(toolbar)
+
+        toolbutton = QToolButton()
+        toolbutton.setText("Button 1")
+        toolbutton.setCheckable(True)
+        toolbutton.setAutoExclusive(True)
+        toolbar.addWidget(toolbutton)
+
+        toolbutton = QToolButton()
+        toolbutton.setText("Button 2")
+        toolbutton.setCheckable(True)
+        toolbutton.setAutoExclusive(True)
+        toolbar.addWidget(toolbutton)
+
+        
+class WinToolBox(QWidget):
+    def __init__(self):
+        """ bouttons bisard on dirai une sorte de menu vertical mais plus pour du text ??? """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        toolbox = QToolBox()
+        layout.addWidget(toolbox)
+
+        label = QLabel()
+        toolbox.addItem(label,"Honda")
+        label = QLabel()
+        toolbox.addItem(label,"Toyota")
+        label = QLabel()
+        toolbox.addItem(label,"Renault")
+
+
+class WinMenuBar(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        menubar = QMenuBar()
+        layout.addWidget(menubar, 0, 0)
+
+        actionFile = menubar.addMenu("File")
+        actionFile.addAction("New")
+        actionFile.addSeparator()
+        actionFile.addAction("Quit")
+
+        menubar.addMenu("Edit")
+        menubar.addMenu("View")
+        menubar.addMenu("Help")
+
+
+class WinMenu(QWidget):
+    def __init__(self):
+        """ menu vertical """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        menu = QMenu()
+        layout.addWidget(menu)
+
+        actionFile = menu.addMenu("File")
+        actionFile.addAction("New")
+        actionFile.addSeparator()
+        actionFile.addAction("Quit")
+
+        menu.addMenu("Edit")
+        menu.addMenu("View")
+        menu.addMenu("Help")
+
+
+class WinTab(QWidget):
+    def __init__(self):
+        """ onglets dans la fenetre """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        label1 = QLabel("Example content in a tab")
+        
+        frame = QFrame()
+        framelayout = QGridLayout()
+        frame.setLayout(framelayout)
+        
+        label2 = QLabel("More example text in the second tab")
+        framelayout.addWidget(label2)
+        button = QPushButton("button")
+        framelayout.addWidget(button)
+        
+        tabwidget = QTabWidget()
+        tabwidget.addTab(label1,"Tab 1")
+        tabwidget.addTab(frame,"Tab 2")
+        layout.addWidget(tabwidget, 0, 0)
+
+    
+
 def openWin(w):
     app = QApplication(sys.argv)
 
@@ -422,6 +562,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(WinSpinBox)
+    openWin(Win)
 
 
