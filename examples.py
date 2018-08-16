@@ -16,7 +16,7 @@ class Hello(QWidget):
         label = QLabel("Hello World !")
         layout.addWidget(label,0,0)
 
-        self.setGeometry(100,100,600,100)
+        self.showMaximized()
 
 class Window(QWindow):
     def __init__(self):
@@ -124,6 +124,7 @@ class WinRadioButton(QWidget):
         radionbutton = self.sender()
         if radiobutton.isChecked():
             print("Selected country is %s" % (radiobutton.country))
+
 
 class WinCheckBox(QWidget):
     def __init__(self):
