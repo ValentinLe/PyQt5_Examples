@@ -804,6 +804,68 @@ class WinFontComboBox(QWidget):
         print("Selected font: %s" %(font.family()))
 
 
+class WinColorDialog(QWidget):
+    def __init__(self):
+        """ selection de couleur a la Paint """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        colordialog = QColorDialog()
+        colordialog.colorSelected.connect(self.color_selected)
+        layout.addWidget(colordialog)
+
+    def color_selected(self):
+        colordialog = self.sender()
+        # QColor
+        color = colordialog.currentColor()
+        # getRgb = (r,g,b,a)
+        print(color.getRgb())
+        # name = #rrggbb
+        print(color.name())
+
+        
+class WinListWidget(QWidget):
+    def __init__(self):
+        """ listWidget liste de selection comme selectMap du Sokoban """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        listwidget = QListWidget()
+        listwidget.insertItem(0, "Orange")
+        listwidget.insertItem(1, "Rose")
+        listwidget.insertItem(2, "Brown")
+        listwidget.insertItem(3, "Mauve")
+        listwidget.insertItem(4, "Cyan")
+        listwidget.clicked.connect(self.listview_clicked)
+        layout.addWidget(listwidget)
+
+    def listview_clicked(self):
+        listwidget = self.sender()
+        item = listwidget.currentItem()
+        print(item.text())
+        
+
+class WinTableWidget(QWidget):
+    def __init__(self):
+        """ tableWidget permet de faire des tableaux """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        button = QPushButton("button")
+
+        tablewidget = QTableWidget()
+        tablewidget.setRowCount(4)
+        tablewidget.setColumnCount(3)
+        tablewidget.setCellWidget(0,1,button)
+        layout.addWidget(tablewidget)
+
+
 class Win(QWidget):
     def __init__(self):
         QWidget.__init__(self)
@@ -811,8 +873,10 @@ class Win(QWidget):
         layout = QGridLayout()
         self.setLayout(layout)
 
-        
+        columnview = QColumnView()
+        layout.addWidget(columnview)
 
+ 
 def openWin(w):
     app = QApplication(sys.argv)
 
