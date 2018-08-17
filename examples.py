@@ -543,7 +543,8 @@ class WinTab(QWidget):
         
         label2 = QLabel("More example text in the second tab")
         framelayout.addWidget(label2)
-        button = QPushButton("button")
+        button = QPushButton("Quit")
+        button.clicked.connect(self.quit_appli)
         framelayout.addWidget(button)
         
         tabwidget = QTabWidget()
@@ -551,7 +552,121 @@ class WinTab(QWidget):
         tabwidget.addTab(frame,"Tab 2")
         layout.addWidget(tabwidget, 0, 0)
 
-    
+    def quit_appli(self):
+        self.close()
+
+
+class WinTabBar(QWidget):
+    def __init__(self):
+        """ tab qui fait toute la longueur mais pas integrer widget """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        label = QLabel("blabla")
+
+        tabbar = QTabBar()
+        tabbar.addTab("Tab 1")
+        tabbar.addTab("Tab 2")
+        tabbar.addTab("Tab 3 ")
+        layout.addWidget(tabbar, 0, 0)
+
+
+class WinStackedWidget(QWidget):
+    def __init__(self):
+        """ stackedWidget sorte de liste de widget ou on affiche 1 de la liste L[0] ou L[1] ou ... """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        self.stackedwidget = QStackedWidget()
+        layout.addWidget(self.stackedwidget, 0, 0)
+
+        for k in range(1,4):
+            label = QLabel("Stack Child %i" %(k))
+            self.stackedwidget.addWidget(label)
+
+            button = QPushButton("Stack %i" %(k))
+            button.page = k
+            button.clicked.connect(self.on_button_clicked)
+            layout.addWidget(button, k, 0)
+
+    def on_button_clicked(self):
+        button = self.sender() # get declencheur de la fonction
+        self.stackedwidget.setCurrentIndex(button.page - 1)
+
+
+class WinDockWidget(QWidget):
+    def __init__(self):
+        """ dockWidget est utile pour separer des widgets de la fenetre principale """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        dockwidget = QDockWidget()
+        dockwidget.setFeatures(QDockWidget.DockWidgetClosable |
+                               QDockWidget.DockWidgetVerticalTitleBar |
+                               QDockWidget.DockWidgetFloatable)
+        layout.addWidget(dockwidget)
+
+        treewidget = QTreeWidget()
+        dockwidget.setWidget(treewidget)
+
+        label = QLabel("DockWidget is docked")
+        layout.addWidget(label)
+
+
+class WinFrom(QDialog):
+    def __init__(self):
+        """ formulaire avec QDialog, QFormLayout """
+        QFormLayout.__init__(self)
+        
+        self.formGroupBox = QGroupBox("Form layout")
+        layout = QFormLayout()
+        layout.addRow(QLabel("Name:"), QLineEdit())
+        layout.addRow(QLabel("Country:"), QComboBox())
+        layout.addRow(QLabel("Age:"), QSpinBox())
+        self.formGroupBox.setLayout(layout)
+
+        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttonBox.accepted.connect(self.accept)
+        buttonBox.rejected.connect(self.reject)
+
+        mainLayout = QVBoxLayout()
+        mainLayout.addWidget(self.formGroupBox)
+        mainLayout.addWidget(buttonBox)
+        self.setLayout(mainLayout)
+        
+        
+class WinComboBox(QWidget):
+    def __init__(self):
+        """ ComboBox est une liste deroulante """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        combobox = QComboBox()
+        combobox.addItem("France")
+        combobox.addItem("Angleterre")
+        combobox.addItem("Brésil")
+        combobox.currentTextChanged.connect(self.combobox_changed)
+        layout.addWidget(combobox)
+
+    def combobox_changed(self):
+        combo = self.sender()
+        print(combo.currentText())
+
+
+class Win(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
 
 def openWin(w):
     app = QApplication(sys.argv)
@@ -563,6 +678,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(Win)
+    openWin(WinComboBox)
 
 
