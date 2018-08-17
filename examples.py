@@ -661,12 +661,72 @@ class WinComboBox(QWidget):
         print(combo.currentText())
 
 
+class WinCompleter(QWidget):
+    def __init__(self):
+        """ proposition de mot dans Entry genre si y'a "S" -> Steven et Samantha propose (comme recherche web) """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        names = ["George", "Marcus", "Samantha", "Steven", "Maria"]
+
+        completer = QCompleter(names)
+
+        self.lineedit = QLineEdit()
+        self.lineedit.setCompleter(completer)
+        layout.addWidget(self.lineedit, 0, 0)
+
+
+class WinCalendarWidget(QWidget):
+    def __init__(self):
+        """ calendar """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        calendar = QCalendarWidget()
+        layout.addWidget(calendar)
+
+
+class WinDateEdit(QWidget):
+    def __init__(self):
+        """ input pour une date """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+        
+        dateedit = QDateEdit()
+        layout.addWidget(dateedit)
+        
+
+class WinTimeEdit(QWidget):
+    def __init__(self):
+        """ input d'heure avec use QTime """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        time = QTime()
+        # time de 13h 15m 40s (HMS)
+        time.setHMS(13, 15, 40)
+
+        timeedit = QTimeEdit()
+        timeedit.setTime(time)
+        layout.addWidget(timeedit, 0, 0)
+
+
 class Win(QWidget):
     def __init__(self):
         QWidget.__init__(self)
 
         layout = QGridLayout()
         self.setLayout(layout)
+
+        
 
 def openWin(w):
     app = QApplication(sys.argv)
@@ -678,6 +738,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(WinComboBox)
+    openWin(Win)
 
 
