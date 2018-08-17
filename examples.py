@@ -719,6 +719,91 @@ class WinTimeEdit(QWidget):
         layout.addWidget(timeedit, 0, 0)
 
 
+class WinDateTimeEdit(QWidget):
+    def __init__(self):
+        """ input date et heure en meme temps """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        datetimeedit = QDateTimeEdit()
+        layout.addWidget(datetimeedit)
+
+
+class WinDialog(QWidget):
+    def __init__(self):
+        """ formulaire (basique) """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        label = QLabel("This is a dialog.")
+        layout.addWidget(label, 0, 0)
+        
+        buttonbox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        layout.addWidget(buttonbox)
+
+
+class WinFileDialog(QWidget):
+    def __init__(self):
+        """ ouverture de fichier a partir d'une fenetre """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        button = QPushButton("Open")
+        button.clicked.connect(self.openFile)
+        layout.addWidget(button)
+
+    def openFile(self):
+        # version visuel windows classique
+        options = QFileDialog.Options()
+
+        # version visuel differente
+        #options = QFileDialog.DontUseNativeDialog
+        file = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()",
+                                           "","All Files (*);;Python Files (*.py)", options=options)
+        print(file)
+        
+
+class WinFontDialog(QFontDialog):
+    def __init__(self):
+        """ selection d'une police a la Word """
+        QFontDialog.__init__(self)
+        self.fontSelected.connect(self.on_font_selected)
+
+    def on_font_selected(self):
+        font = self.currentFont()
+
+        print("Name :         %s" %(font.family()))
+        print("Size :         %i" %(font.pointSize()))
+        print("Italic :       %s" %(font.italic()))
+        print("Underline :    %s" %(font.underline()))
+        print("Strikeout :    %s" %(font.strikeOut()))
+
+
+class WinFontComboBox(QWidget):
+    def __init__(self):
+        """ selection de font dans liste deroulante """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        fontcombobox = QFontComboBox()
+        fontcombobox.currentFontChanged.connect(self.on_font_changed)
+        layout.addWidget(fontcombobox)
+
+    def on_font_changed(self):
+        fontcombobox = self.sender()
+        font = fontcombobox.currentFont()
+
+        print("Selected font: %s" %(font.family()))
+
+
 class Win(QWidget):
     def __init__(self):
         QWidget.__init__(self)
