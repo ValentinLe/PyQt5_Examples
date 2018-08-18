@@ -954,12 +954,78 @@ class WinWizard(QWidget):
         self.wizard.open()
 
 
-class Win(QWidget):
+class WinColor(QWidget):
     def __init__(self):
+        """ la couleur en Qt """
         QWidget.__init__(self)
 
         layout = QGridLayout()
         self.setLayout(layout)
+
+        color = QColor(12,35,125)
+        print(color.getRgb())
+        print(color.name())
+        
+
+class WinIcon(QWidget):
+    def __init__(self):
+        """ QIcon et placement en icon de fenetre """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        icon = QIcon(QPixmap("boom.png"))
+        self.setWindowIcon(icon)
+
+class WinDate(QWidget):
+    def __init__(self):
+        """ QDate meme style GregorianCalendar pour jour, mois et annee """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        date = QDate(2018,5,15)
+        print(date)
+        date = date.addDays(20)
+        print(date)
+        
+# Il existe aussi QDateTime pour faire les 2
+
+class WinTime(QWidget):
+    def __init__(self):
+        """ QTime meme style GregorianCalendar pour heure, min, sec, millisec """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        time = QTime(13,50)
+        print(time)
+        time = time.addSecs(180)
+        print(time)
+
+
+class WinDirAndFile(QWidget):
+    def __init__(self):
+        """ QDir et QFile pour gérer les dossiers et fichiers """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        dirpath = QDir()
+        print(dirpath.exists("fichierInexistant.txt"))
+        print(dirpath.exists("Sommary.txt"))
+        print(dirpath.absolutePath())
+        print(dirpath.current().dirName())
+        print(dirpath.count())
+
+        file = QFile()
+        file.setFileName("Sommary.txt")
+        print(file.fileName())
+        
 
 def openWin(w):
     app = QApplication(sys.argv)
@@ -971,6 +1037,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(Win)
+    openWin(WinDirAndFile)
 
 

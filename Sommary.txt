@@ -191,6 +191,22 @@ class WinWizard(QWidget):
         """ Wizard est la fenetre quand on telecharge appli avec button next, back, cancel, finish """
 
 line 957
-class Win(QWidget):
+class WinColor(QWidget):
+        """ la couleur en Qt """
 
+line 970
+class WinIcon(QWidget):
+        """ QIcon et placement en icon de fenetre """
+
+line 981
+class WinDate(QWidget):
+        """ QDate meme style GregorianCalendar pour jour, mois et annee """
+
+line 996
+class WinTime(QWidget):
+        """ QTime meme style GregorianCalendar pour heure, min, sec, millisec """
+
+line 1010
+class WinDirAndFile(QWidget):
+        """ QDir et QFile pour gérer les dossiers et fichiers """
 
