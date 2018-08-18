@@ -193,7 +193,7 @@ class WinWhatsThis(QWidget):
         layout.addWidget(self.combobox)
 
 
-class WinEntry(QWidget):
+class WinLineEdit(QWidget):
     def __init__(self):
         """ Line Edit / Entry box pour récupérer du texte """
         QWidget.__init__(self)
@@ -202,6 +202,7 @@ class WinEntry(QWidget):
         self.setLayout(layout)
 
         self.lineedit = QLineEdit()
+        self.lineedit.setPlaceholderText("text...")
         self.lineedit.returnPressed.connect(self.return_pressed)
         layout.addWidget(self.lineedit, 0, 0)
 
@@ -488,6 +489,7 @@ class WinToolBox(QWidget):
 
 class WinMenuBar(QWidget):
     def __init__(self):
+        """ menu de haut de page file, edit, help... """
         QWidget.__init__(self)
 
         layout = QGridLayout()
@@ -866,15 +868,17 @@ class WinTableWidget(QWidget):
         layout.addWidget(tablewidget)
 
 
-class Win(QWidget):
+class WinPlainTextEdit(QWidget):
     def __init__(self):
+        """ PlainTextEdit est un input de text taille QFrame """
         QWidget.__init__(self)
 
         layout = QGridLayout()
         self.setLayout(layout)
 
-        columnview = QColumnView()
-        layout.addWidget(columnview)
+        plaintextedit = QPlainTextEdit()
+        plaintextedit.setPlaceholderText("This is some placeholder text.")
+        layout.addWidget(plaintextedit)
 
  
 def openWin(w):
@@ -887,6 +891,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(Win)
+    openWin(WinLineEdit)
 
 
