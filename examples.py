@@ -882,6 +882,78 @@ class WinPlainTextEdit(QWidget):
         plaintextedit.setPlaceholderText("This is some placeholder text.")
         layout.addWidget(plaintextedit)
 
+class WinTextEdit(QWidget):
+    def __init__(self):
+        """ TextEdit est riche balise html, images, paragraphes alors que plainTextEdit text brut """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        textedit = QTextEdit()
+        textedit.setPlaceholderText("This is some placeholder text.")
+        textedit.insertHtml("<b>Texte bold balise html</b>")
+        layout.addWidget(textedit)
+
+
+class WinSplashScreen(QWidget):
+    def __init__(self):
+        """ SplashScreen est pour le temps de chargement avec progressBar et images ou autre """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        splashscreen = QSplashScreen(QPixmap("island.jpg"))
+        layout.addWidget(splashscreen)
+
+
+class WinMessageBox(QMessageBox):
+    def __init__(self):
+        """ MessageBox est une pop-up informative, question, autre ... """
+        QMessageBox.__init__(self)
+        self.setText("This is a messageBox")
+        self.setInformativeText("Informative text")
+        self.setIcon(QMessageBox.Information)
+        self.setStandardButtons(QMessageBox.Close)
+
+
+class WinWizard(QWidget):
+    def __init__(self):
+        """ Wizard est la fenetre quand on telecharge appli avec button next, back, cancel, finish """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+        self.setWindowTitle("PyQt5 Wizard Example")
+
+        button = QPushButton("Lunch")
+        button.clicked.connect(self.on_button_clicked)
+        layout.addWidget(button)
+
+        self.wizard = QWizard()
+
+        wizardpage = QWizardPage()
+        wizardpage.setTitle("Titre wizard page")
+        wizardpage.setSubTitle("sous-titre")
+        self.wizard.addPage(wizardpage)
+
+        wizardpage = QWizardPage()
+        wizardpage.setTitle("Titre wizard page 2")
+        wizardpage.setSubTitle("sous-titre 2")
+        self.wizard.addPage(wizardpage)
+
+        wizardpage = QWizardPage()
+        wizardpage.setTitle("Titre wizard page 3")
+        wizardpage.setSubTitle("sous-titre 3")
+        self.wizard.addPage(wizardpage)
+
+        self.wizard.setWindowTitle("Titre de wizard")
+        
+    def on_button_clicked(self):
+        self.wizard.open()
+
+
 class Win(QWidget):
     def __init__(self):
         QWidget.__init__(self)
@@ -899,6 +971,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(WinGroupBox)
+    openWin(Win)
 
 

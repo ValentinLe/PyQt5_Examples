@@ -18,7 +18,7 @@ class Sommary():
             cpt += 1
             if "class" in ch[k] and "):" in ch[k]:
                 res += "line " + str(cpt) + "\n" + ch[k] + "\n"
-                if '"""' in ch[k+2]:
+                if '"""' in ch[k+2] or "'''" in ch[k+2]:
                     res += ch[k+2] + "\n\n"
                 else:
                     res += "\n\n"

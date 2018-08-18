@@ -175,6 +175,22 @@ class WinPlainTextEdit(QWidget):
         """ PlainTextEdit est un input de text taille QFrame """
 
 line 885
+class WinTextEdit(QWidget):
+        """ TextEdit est riche balise html, images, paragraphes alors que plainTextEdit text brut """
+
+line 899
+class WinSplashScreen(QWidget):
+        """ SplashScreen est pour le temps de chargement avec progressBar et images ou autre """
+
+line 911
+class WinMessageBox(QMessageBox):
+        """ MessageBox est une pop-up informative, question, autre ... """
+
+line 921
+class WinWizard(QWidget):
+        """ Wizard est la fenetre quand on telecharge appli avec button next, back, cancel, finish """
+
+line 957
 class Win(QWidget):
 
 
