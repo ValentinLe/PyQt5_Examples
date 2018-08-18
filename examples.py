@@ -81,7 +81,7 @@ class WinTextAdapt(QWidget):
         layout.addWidget(label, 0, 1)
 
 
-class WinButton(QWidget):
+class WinPushButton(QWidget):
     def __init__(self):
         """ gestion d'un boutton """
         QWidget.__init__(self)
@@ -242,6 +242,7 @@ class WinButtonGroup(QWidget):
 
 class WinGroupBox(QWidget):
     def __init__(self):
+        """ GroupBox est une zone enable/disable avec une checkbox """
         QWidget.__init__(self)
         self.setWindowTitle("GroupBox")
 
@@ -372,6 +373,7 @@ class WinSplitter(QWidget):
 
 class WinScrollArea(QWidget):
     def __init__(self):
+        """ gestion d'une barre de scroll """
         QWidget.__init__(self)
 
         layout = QGridLayout()
@@ -880,7 +882,13 @@ class WinPlainTextEdit(QWidget):
         plaintextedit.setPlaceholderText("This is some placeholder text.")
         layout.addWidget(plaintextedit)
 
- 
+class Win(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
 def openWin(w):
     app = QApplication(sys.argv)
 
@@ -891,6 +899,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(WinLineEdit)
+    openWin(WinGroupBox)
 
 

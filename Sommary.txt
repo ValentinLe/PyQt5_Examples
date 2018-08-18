@@ -1,0 +1,180 @@
+line 7
+class Hello(QWidget):
+        """ hello world avec GridLayout """
+
+line 21
+class Window(QWindow):
+        """ autre type de fenetre """
+
+line 28
+class WinBoxLayout(QWidget):
+        """ ajout d'elements hori et verti """
+
+line 50
+class WinGridLayout(QWidget):
+        """ GridLayout un peu plus pousse """
+
+line 68
+class WinTextAdapt(QWidget):
+        """ Faire adapter du texte selon la taille de la fenetre """
+
+line 84
+class WinPushButton(QWidget):
+        """ gestion d'un boutton """
+
+line 99
+class WinRadioButton(QWidget):
+        """ radiobutton qui bug sur isChecked """
+
+line 129
+class WinCheckBox(QWidget):
+        """ checkbox detection selection """
+
+line 164
+class WinToolTip(QWidget):
+        """ les tooltip (infos bulles) """
+
+line 180
+class WinWhatsThis(QWidget):
+        """ liste déroulante info bulle qu'est ce que c'est """
+
+line 196
+class WinLineEdit(QWidget):
+        """ Line Edit / Entry box pour récupérer du texte """
+
+line 213
+class WinButtonGroup(QWidget):
+        """ gerer un group de boutton un peu comme JS avec buttons[n] """
+
+line 243
+class WinGroupBox(QWidget):
+        """ GroupBox est une zone enable/disable avec une checkbox """
+
+line 269
+class WinSlider(QWidget):
+        """ les sliders """
+
+line 286
+class WinDial(QWidget):
+        """ slider en forme de compteur de voiture """
+
+line 305
+class WinShowNumber(QWidget):
+        """ Afficheur 7 segments d'un nombre """
+
+line 318
+class WinProgressBar(QWidget):
+        """ control d'une bar de progression avec slider """
+
+line 345
+class WinSplitter(QWidget):
+        """ faire un splitter de zones (Frame) """
+
+line 374
+class WinScrollArea(QWidget):
+        """ gestion d'une barre de scroll """
+
+line 397
+class WinSpinBox(QWidget):
+        """ spinbox = box number avec les fleches pour ++/-- le nombre """
+
+line 422
+class WinProgressDialog(QWidget):
+        """ progressBar sans avec un boutton cancel et/ou sa disparition quand 100% """
+
+line 449
+class WinToolBar(QWidget):
+        """ button classique qui fonctionnent comme selection button radio """
+
+line 473
+class WinToolBox(QWidget):
+        """ bouttons bisard on dirai une sorte de menu vertical mais plus pour du text ??? """
+
+line 492
+class WinMenuBar(QWidget):
+        """ menu de haut de page file, edit, help... """
+
+line 513
+class WinMenu(QWidget):
+        """ menu vertical """
+
+line 534
+class WinTab(QWidget):
+        """ onglets dans la fenetre """
+
+line 563
+class WinTabBar(QWidget):
+        """ tab qui fait toute la longueur mais pas integrer widget """
+
+line 580
+class WinStackedWidget(QWidget):
+        """ stackedWidget sorte de liste de widget ou on affiche 1 de la liste L[0] ou L[1] ou ... """
+
+line 605
+class WinDockWidget(QWidget):
+        """ dockWidget est utile pour separer des widgets de la fenetre principale """
+
+line 626
+class WinFrom(QDialog):
+        """ formulaire avec QDialog, QFormLayout """
+
+line 648
+class WinComboBox(QWidget):
+        """ ComboBox est une liste deroulante """
+
+line 668
+class WinCompleter(QWidget):
+        """ proposition de mot dans Entry genre si y'a "S" -> Steven et Samantha propose (comme recherche web) """
+
+line 685
+class WinCalendarWidget(QWidget):
+        """ calendar """
+
+line 697
+class WinDateEdit(QWidget):
+        """ input pour une date """
+
+line 709
+class WinTimeEdit(QWidget):
+        """ input d'heure avec use QTime """
+
+line 726
+class WinDateTimeEdit(QWidget):
+        """ input date et heure en meme temps """
+
+line 738
+class WinDialog(QWidget):
+        """ formulaire (basique) """
+
+line 753
+class WinFileDialog(QWidget):
+        """ ouverture de fichier a partir d'une fenetre """
+
+line 776
+class WinFontDialog(QFontDialog):
+        """ selection d'une police a la Word """
+
+line 792
+class WinFontComboBox(QWidget):
+        """ selection de font dans liste deroulante """
+
+line 811
+class WinColorDialog(QWidget):
+        """ selection de couleur a la Paint """
+
+line 833
+class WinListWidget(QWidget):
+        """ listWidget liste de selection comme selectMap du Sokoban """
+
+line 856
+class WinTableWidget(QWidget):
+        """ tableWidget permet de faire des tableaux """
+
+line 873
+class WinPlainTextEdit(QWidget):
+        """ PlainTextEdit est un input de text taille QFrame """
+
+line 885
+class Win(QWidget):
+
+
