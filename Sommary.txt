@@ -1,212 +1,216 @@
-line 7
+line 8
 class Hello(QWidget):
         """ hello world avec GridLayout """
 
-line 21
+line 22
 class Window(QWindow):
         """ autre type de fenetre """
 
-line 28
+line 29
 class WinBoxLayout(QWidget):
         """ ajout d'elements hori et verti """
 
-line 50
+line 51
 class WinGridLayout(QWidget):
         """ GridLayout un peu plus pousse """
 
-line 68
+line 69
 class WinTextAdapt(QWidget):
         """ Faire adapter du texte selon la taille de la fenetre """
 
-line 84
+line 85
 class WinPushButton(QWidget):
         """ gestion d'un boutton """
 
-line 99
+line 100
 class WinRadioButton(QWidget):
         """ radiobutton qui bug sur isChecked """
 
-line 129
+line 130
 class WinCheckBox(QWidget):
         """ checkbox detection selection """
 
-line 164
+line 165
 class WinToolTip(QWidget):
         """ les tooltip (infos bulles) """
 
-line 180
+line 181
 class WinWhatsThis(QWidget):
         """ liste déroulante info bulle qu'est ce que c'est """
 
-line 196
+line 197
 class WinLineEdit(QWidget):
         """ Line Edit / Entry box pour récupérer du texte """
 
-line 213
+line 214
 class WinButtonGroup(QWidget):
         """ gerer un group de boutton un peu comme JS avec buttons[n] """
 
-line 243
+line 244
 class WinGroupBox(QWidget):
         """ GroupBox est une zone enable/disable avec une checkbox """
 
-line 269
+line 270
 class WinSlider(QWidget):
         """ les sliders """
 
-line 286
+line 287
 class WinDial(QWidget):
         """ slider en forme de compteur de voiture """
 
-line 305
+line 306
 class WinShowNumber(QWidget):
         """ Afficheur 7 segments d'un nombre """
 
-line 318
+line 319
 class WinProgressBar(QWidget):
         """ control d'une bar de progression avec slider """
 
-line 345
+line 346
 class WinSplitter(QWidget):
         """ faire un splitter de zones (Frame) """
 
-line 374
+line 375
 class WinScrollArea(QWidget):
         """ gestion d'une barre de scroll """
 
-line 397
+line 398
 class WinSpinBox(QWidget):
         """ spinbox = box number avec les fleches pour ++/-- le nombre """
 
-line 422
+line 423
 class WinProgressDialog(QWidget):
         """ progressBar sans avec un boutton cancel et/ou sa disparition quand 100% """
 
-line 449
+line 450
 class WinToolBar(QWidget):
         """ button classique qui fonctionnent comme selection button radio """
 
-line 473
+line 474
 class WinToolBox(QWidget):
         """ bouttons bisard on dirai une sorte de menu vertical mais plus pour du text ??? """
 
-line 492
+line 493
 class WinMenuBar(QWidget):
         """ menu de haut de page file, edit, help... """
 
-line 513
+line 514
 class WinMenu(QWidget):
         """ menu vertical """
 
-line 534
+line 535
 class WinTab(QWidget):
         """ onglets dans la fenetre """
 
-line 563
+line 564
 class WinTabBar(QWidget):
         """ tab qui fait toute la longueur mais pas integrer widget """
 
-line 580
+line 581
 class WinStackedWidget(QWidget):
         """ stackedWidget sorte de liste de widget ou on affiche 1 de la liste L[0] ou L[1] ou ... """
 
-line 605
+line 606
 class WinDockWidget(QWidget):
         """ dockWidget est utile pour separer des widgets de la fenetre principale """
 
-line 626
+line 627
 class WinFrom(QDialog):
         """ formulaire avec QDialog, QFormLayout """
 
-line 648
+line 649
 class WinComboBox(QWidget):
         """ ComboBox est une liste deroulante """
 
-line 668
+line 669
 class WinCompleter(QWidget):
         """ proposition de mot dans Entry genre si y'a "S" -> Steven et Samantha propose (comme recherche web) """
 
-line 685
+line 686
 class WinCalendarWidget(QWidget):
         """ calendar """
 
-line 697
+line 698
 class WinDateEdit(QWidget):
         """ input pour une date """
 
-line 709
+line 710
 class WinTimeEdit(QWidget):
         """ input d'heure avec use QTime """
 
-line 726
+line 727
 class WinDateTimeEdit(QWidget):
         """ input date et heure en meme temps """
 
-line 738
+line 739
 class WinDialog(QWidget):
         """ formulaire (basique) """
 
-line 753
+line 754
 class WinFileDialog(QWidget):
         """ ouverture de fichier a partir d'une fenetre """
 
-line 776
+line 777
 class WinFontDialog(QFontDialog):
         """ selection d'une police a la Word """
 
-line 792
+line 793
 class WinFontComboBox(QWidget):
         """ selection de font dans liste deroulante """
 
-line 811
+line 812
 class WinColorDialog(QWidget):
         """ selection de couleur a la Paint """
 
-line 833
+line 834
 class WinListWidget(QWidget):
         """ listWidget liste de selection comme selectMap du Sokoban """
 
-line 856
+line 857
 class WinTableWidget(QWidget):
         """ tableWidget permet de faire des tableaux """
 
-line 873
+line 874
 class WinPlainTextEdit(QWidget):
         """ PlainTextEdit est un input de text taille QFrame """
 
-line 885
+line 886
 class WinTextEdit(QWidget):
         """ TextEdit est riche balise html, images, paragraphes alors que plainTextEdit text brut """
 
-line 899
+line 900
 class WinSplashScreen(QWidget):
         """ SplashScreen est pour le temps de chargement avec progressBar et images ou autre """
 
-line 911
+line 912
 class WinMessageBox(QMessageBox):
         """ MessageBox est une pop-up informative, question, autre ... """
 
-line 921
+line 922
 class WinWizard(QWidget):
         """ Wizard est la fenetre quand on telecharge appli avec button next, back, cancel, finish """
 
-line 957
+line 958
 class WinColor(QWidget):
         """ la couleur en Qt """
 
-line 970
+line 971
 class WinIcon(QWidget):
         """ QIcon et placement en icon de fenetre """
 
-line 981
+line 982
 class WinDate(QWidget):
         """ QDate meme style GregorianCalendar pour jour, mois et annee """
 
-line 996
+line 997
 class WinTime(QWidget):
         """ QTime meme style GregorianCalendar pour heure, min, sec, millisec """
 
-line 1010
+line 1011
 class WinDirAndFile(QWidget):
         """ QDir et QFile pour gérer les dossiers et fichiers """
+
+line 1031
+class WinPainter(QWidget):
+        """ permet de dessiner rectangles, images, ... """
 

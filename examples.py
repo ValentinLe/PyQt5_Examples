@@ -1030,7 +1030,7 @@ class WinDirAndFile(QWidget):
 
 class WinPainter(QWidget):
     def __init__(self):
-        """ permet de dessiner comme en swing """
+        """ permet de dessiner rectangles, images, ... """
         QWidget.__init__(self)
 
         layout = QGridLayout()
