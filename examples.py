@@ -3,6 +3,7 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from random import *
 
 class Hello(QWidget):
     def __init__(self):
@@ -1025,6 +1026,59 @@ class WinDirAndFile(QWidget):
         file = QFile()
         file.setFileName("Sommary.txt")
         print(file.fileName())
+
+
+class WinPainter(QWidget):
+    def __init__(self):
+        """ permet de dessiner comme en swing """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+        self.showMaximized()
+
+        self.L = []
+        self.x = 10
+        self.y = 10
+        self.createGrid(self.x, self.y)
+
+    def createGrid(self,x,y):
+        self.L = []
+        colors = ["r","g","b","boom"]
+        for j in range(y):
+            self.L.append([])
+            for i in range(x):
+                self.L[j].append(choice(colors))
+        
+
+    def paintEvent(self, e):
+        qp = QPainter()
+        qp.begin(self)
+        self.drawGrid(qp)
+        qp.end()
+
+    def drawGrid(self,qp):
+        color = QColor(0,0,0)
+        qp.setPen(color)
+        height = self.height()//self.y
+        width = self.width()//self.x
+        size = min(width, height)
+        for j in range(self.y):
+            for i in range(self.x):
+                if self.L[j][i] == "r":
+                    qp.setBrush(QColor(255, 0, 0))
+                    qp.drawRect(i*size, j*size, size, size)
+                elif self.L[j][i] == "g":
+                    qp.setBrush(QColor(0, 255, 0))
+                    qp.drawRect(i*size, j*size, size, size)
+                elif self.L[j][i] == "boom":
+                    qp.setBrush(QColor(0, 0, 255))
+                    qp.drawRect(i*size, j*size, size, size)
+                else:
+                    qp.drawImage(QRect(i*size, j*size, size, size),QImage("boom.png"))
+                    
+    
+
         
 
 def openWin(w):
@@ -1037,6 +1091,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(WinDirAndFile)
+    openWin(WinPainter)
 
 
