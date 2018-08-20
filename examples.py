@@ -5,7 +5,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from random import *
 
-class Hello(QWidget):
+class WinHello(QWidget):
     def __init__(self):
         """ hello world avec GridLayout """
         QWidget.__init__(self)
@@ -1076,10 +1076,95 @@ class WinPainter(QWidget):
                     qp.drawRect(i*size, j*size, size, size)
                 else:
                     qp.drawImage(QRect(i*size, j*size, size, size),QImage("boom.png"))
-                    
-    
 
+
+class WinKeyPressEvent(QWidget):
+    def __init__(self):
+        """ gestion des events de touches """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Q:
+            print("touche Q")
+        elif event.key() == Qt.Key_Space:
+            print("Space")
+        elif event.key() == Qt.Key_Up:
+            print("Up")
+
+
+class WinMousePressEvent(QWidget):
+    def __init__(self):
+        """ gestion de click """
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+    def mousePressEvent(self, event):
+        print("click : " + str(event.x()) + " " + str(event.y()))
+        if event.button() == Qt.LeftButton:
+            print("click gauche")
+        elif event.button() == Qt.RightButton:
+            print("click droit")
+        elif event.button() == Qt.MiddleButton:
+            print("click milieu")
+        print()
+
+class Sommary(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+        self.setWindowTitle("Select Window")
+        self.setGeometry(500,250,500,500)
+
+        self.listWin = self.getListWin()
+        self.listWin.sort()
+
+        listwidget = QListWidget()
+        self.winSelect = None
         
+        for i in range(len(self.listWin)):
+            listwidget.insertItem(i,self.listWin[i])
+        
+        listwidget.clicked.connect(self.listview_clicked)
+        layout.addWidget(listwidget, 0, 0)
+
+        button = QPushButton("Open")
+        button.clicked.connect(self.openWindow)
+        layout.addWidget(button, 1, 0)
+
+    def openWindow(self):
+        if self.winSelect != None:
+            w = eval(self.winSelect)()
+            w.show()
+
+    def listview_clicked(self):
+        listwidget = self.sender()
+        item = listwidget.currentItem()
+        self.winSelect = item.text()
+
+    def getListWin(self):
+        L = []
+        file = open("Sommary.txt","r")
+        for line in file:
+            if line[:5] == "class":
+                L.append(self.getNameClass(line))
+        return L
+
+    def getNameClass(self, ch):
+        ch = ch[6:]
+        cpt = 0
+        while ch[cpt] != "(":
+            cpt += 1
+        ch = ch[:cpt]
+        return ch
+        
+
 
 def openWin(w):
     app = QApplication(sys.argv)
@@ -1091,6 +1176,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(WinPainter)
+    openWin(Sommary)
 
 

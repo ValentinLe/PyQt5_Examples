@@ -1,5 +1,5 @@
 line 8
-class Hello(QWidget):
+class WinHello(QWidget):
         """ hello world avec GridLayout """
 
 line 22
@@ -213,4 +213,12 @@ class WinDirAndFile(QWidget):
 line 1031
 class WinPainter(QWidget):
         """ permet de dessiner rectangles, images, ... """
+
+line 1081
+class WinKeyPressEvent(QWidget):
+        """ gestion des events de touches """
+
+line 1098
+class WinMousePressEvent(QWidget):
+        """ gestion de click """
 
