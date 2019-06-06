@@ -3,6 +3,7 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from PyQt5.QtMultimedia import *
 from random import *
 
 class WinHello(QWidget):
@@ -1113,12 +1114,26 @@ class WinMousePressEvent(QWidget):
             print("click milieu")
         print()
 
+class WinMedia(QWidget):
+    def __init__(self):
+        """ gestion des sons """
+        QWidget.__init__(self)
+
+        self.player = QMediaPlayer()
+        url = QUrl.fromLocalFile("./test.mp3")
+        self.player.setMedia(QMediaContent(url))
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+        self.player.play()
+
 class Sommary(QWidget):
     def __init__(self):
         QWidget.__init__(self)
 
         layout = QGridLayout()
         self.setLayout(layout)
+        
         self.setWindowTitle("Select Window")
         self.setGeometry(500,250,500,500)
 
@@ -1140,8 +1155,10 @@ class Sommary(QWidget):
 
     def openWindow(self):
         if self.winSelect != None:
-            w = eval(self.winSelect)()
-            w.show()
+            window = QMainWindow(self)
+            widget = eval(self.winSelect)()
+            window.setCentralWidget(widget)
+            window.show()
 
     def listview_clicked(self):
         listwidget = self.sender()
@@ -1163,7 +1180,13 @@ class Sommary(QWidget):
             cpt += 1
         ch = ch[:cpt]
         return ch
-        
+
+class MainWindow(QMainWindow):
+    def __init__(self, parent = None):
+        super(MainWindow,self).__init__(parent)
+        self.setGeometry(800,200,500,500)
+        sommary = Sommary()
+        self.setCentralWidget(sommary)
 
 
 def openWin(w):
@@ -1176,6 +1199,6 @@ def openWin(w):
 
 if __name__ == "__main__":
 
-    openWin(Sommary)
+    openWin(MainWindow)
 
 
