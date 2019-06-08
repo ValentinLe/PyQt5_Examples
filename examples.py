@@ -1145,6 +1145,23 @@ class WinMedia(QWidget):
     def stopSong(self):
         self.player.stop()
 
+class WinStyleSheet(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+
+        label = QLabel("Label :")
+        button1 = QPushButton("button 1")
+        button2 = QPushButton("button 2")
+
+        # ajout de la feuille de style
+        self.setStyleSheet(open("style.qss", "r").read())
+
+        layout = QGridLayout()
+        self.setLayout(layout)
+        layout.addWidget(label, 0, 0)
+        layout.addWidget(button1, 1, 0)
+        layout.addWidget(button2, 2, 0)
+
 class Sommary(QWidget):
     def __init__(self):
         QWidget.__init__(self)
@@ -1209,7 +1226,7 @@ class MainWindow(QMainWindow):
 
 def openWin(w):
     app = QApplication(sys.argv)
-
+    
     window = w()
     window.show()
 

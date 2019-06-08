@@ -226,11 +226,15 @@ line 1117
 class WinMedia(QWidget):
         """ gestion des sons """
 
-line 1130
+line 1148
+class WinStyleSheet(QWidget):
+
+
+line 1162
 class Sommary(QWidget):
 
 
-line 1184
+line 1216
 class MainWindow(QMainWindow):
 
 
