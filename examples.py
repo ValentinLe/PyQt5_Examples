@@ -1123,9 +1123,27 @@ class WinMedia(QWidget):
         url = QUrl.fromLocalFile("./test.mp3")
         self.player.setMedia(QMediaContent(url))
 
+        bPlay = QPushButton("Play")
+        bPlay.clicked.connect(self.playSong)
+        bPause = QPushButton("Pause")
+        bPause.clicked.connect(self.pauseSong)
+        bStop = QPushButton("Stop")
+        bStop.clicked.connect(self.stopSong)
+
         layout = QGridLayout()
         self.setLayout(layout)
+        layout.addWidget(bPlay, 0, 0)
+        layout.addWidget(bPause, 0, 1)
+        layout.addWidget(bStop, 0, 2)
+
+    def playSong(self):
         self.player.play()
+    
+    def pauseSong(self):
+        self.player.pause()
+    
+    def stopSong(self):
+        self.player.stop()
 
 class Sommary(QWidget):
     def __init__(self):
