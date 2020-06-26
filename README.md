@@ -9,7 +9,9 @@ Fenêtre principale du programme listant tous les exemples :
   <img src="https://github.com/ValentinLe/PyQt5_Examples/blob/master/screenshots/mainWindow.PNG" width="300" height="322" alt="mainWindow" />
 </div>
 
-<figcaption> Exemple d'une barre de progression (ici contrôlée par une slideBar). </figcaption>
+<br/>
+
+Exemple d'une barre de progression (ici contrôlée par une slideBar) :
 <div align="center">
   <img src="https://github.com/ValentinLe/PyQt5_Examples/blob/master/screenshots/exemple1.PNG" width="300" height="322" alt="exemple" />
 </div>
