@@ -228,13 +228,13 @@ class WinMedia(QWidget):
 
 line 1148
 class WinStyleSheet(QWidget):
+        """ gestion feuille de style qss """
 
-
-line 1162
+line 1166
 class Sommary(QWidget):
 
 
-line 1216
+line 1220
 class MainWindow(QMainWindow):
 
 

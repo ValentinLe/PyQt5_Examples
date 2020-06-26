@@ -625,7 +625,7 @@ class WinDockWidget(QWidget):
         layout.addWidget(label)
 
 
-class WinFrom(QDialog):
+class WinForm(QDialog):
     def __init__(self):
         """ formulaire avec QDialog, QFormLayout """
         QFormLayout.__init__(self)
@@ -1147,6 +1147,7 @@ class WinMedia(QWidget):
 
 class WinStyleSheet(QWidget):
     def __init__(self):
+        """ gestion feuille de style qss """
         QWidget.__init__(self)
 
         label = QLabel("Label :")
